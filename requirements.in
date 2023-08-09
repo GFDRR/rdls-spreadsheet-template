@@ -1,0 +1,5 @@
+click
+ocdskit
+requests
+xlsxwriter
+./flatten-tool
