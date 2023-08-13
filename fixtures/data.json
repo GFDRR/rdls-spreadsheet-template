@@ -1,0 +1,339 @@
+{
+  "id": "1",
+  "title": "Example dataset",
+  "description": "An example dataset",
+  "risk_data_type": "hazard",
+  "publisher": {
+    "name": "Example publisher",
+    "email": "example@example.com",
+    "url": "http://www.example.com"
+  },
+  "version": "1.0",
+  "purpose": "Example purpose",
+  "project": "Example project",
+  "details": "Some details",
+  "spatial": {
+    "countries": [
+      "GBR"
+    ],
+    "bbox": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "centroid": [
+      0,
+      0
+    ],
+    "scale": "global",
+    "gazetteerEntries": [
+      {
+        "id": "AD",
+        "scheme": "ISO 3166-2",
+        "description": "Andorra",
+        "uri": "http://www.example.com"
+      }
+    ]
+  },
+  "license": "CC0-1.0",
+  "contact_point": {
+    "name": "John Smith",
+    "email": "example@example.com",
+    "url": "http://www.example.com"
+  },
+  "creator": {
+    "name": "John Smith",
+    "email": "example@example.com",
+    "url": "http://www.example.com"
+  },
+  "exposure": {
+    "category": "agriculture",
+    "taxonomy": "Example taxonomy",
+    "cost": [
+      {
+        "id": "1",
+        "type": "structure",
+        "unit": "ADP"
+      }
+    ]
+  },
+  "vulnerability": {
+    "hazard_primary": "coastal_flood",
+    "hazard_secondary": "tsunami",
+    "hazard_process_primary": "coastal_flood",
+    "hazard_process_secondary": "coastal_flood",
+    "hazard_analysis_type": "deterministic",
+    "intensity": "PGA:g",
+    "category": "agriculture",
+    "taxonomy": "Example taxonomy",
+    "impact": {
+      "type": "direct",
+      "metric": "damage_ratio",
+      "unit": "percentage",
+      "base_data_type": "inferred"
+    },
+    "spatial": {
+      "countries": [
+        "AFG"
+      ],
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "centroid": [
+        0,
+        0
+      ],
+      "scale": "global",
+      "gazetteerEntries": [
+        {
+          "id": "AD",
+          "scheme": "ISO 3166-2",
+          "description": "Andorra",
+          "uri": "http://www.example.com"
+        }
+      ]
+    },
+    "functions": {
+      "vulnerability": {
+        "approach": "analytical",
+        "relationship": "discrete"
+      },
+      "fragility": {
+        "approach": "analytical",
+        "relationship": "discrete",
+        "damage_scale_name": "EMS-98",
+        "damage_states_names": [
+          "Example damage state 1",
+          "example damage state 2"
+        ]
+      },
+      "damage_to_loss": {
+        "approach": "analytical",
+        "relationship": "discrete",
+        "damage_scale_name": "EMS-98",
+        "damage_states_names": [
+          "Example damage state 1",
+          "example damage state 2"
+        ]
+      },
+      "engineering_demand": {
+        "parameter": "PA_dmg_index",
+        "approach": "analytical",
+        "relationship": "discrete"
+      }
+    },
+    "analysis_details": "Some details",
+    "se_category": {
+      "scheme": "GED4ALL-socio-economic",
+      "id": "1",
+      "description": "A description",
+      "uri": "http://www.example.com"
+    },
+    "cost": [
+      {
+        "id": "1",
+        "type": "structure",
+        "unit": "ADP"
+      }
+    ]
+  },
+  "loss": {
+    "hazard_type": "coastal_flood",
+    "hazard_process": "coastal_flood",
+    "description": "A description",
+    "category": "agriculture",
+    "impact": {
+      "type": "direct",
+      "metric": "damage_ratio",
+      "unit": "percentage",
+      "base_data_type": "inferred"
+    },
+    "type": "ground_up",
+    "approach": "analytical",
+    "hazard_analysis_type": "deterministic",
+    "hazard_id": "1",
+    "exposure_id": "1",
+    "vulnerability_id": "1",
+    "cost": [
+      {
+        "id": "1",
+        "type": "structure",
+        "unit": "ADP"
+      }
+    ]
+  },
+  "temporal_resolution": "P3Y",
+  "attributions": [
+    {
+      "id": "1",
+      "entity": {
+        "name": "Example entity",
+        "email": "example@example.com",
+        "url": "http://www.example.com"
+      },
+      "role": "resource_provider"
+    }
+  ],
+  "sources": [
+    {
+      "id": "1",
+      "name": "Example source",
+      "url": "http://www.example.com",
+      "type": "dataset",
+      "component": "hazard"
+    }
+  ],
+  "referenced_by": [
+    {
+      "id": "1",
+      "name": "Example resource",
+      "authorNames": [
+        "John Smith",
+        "Joe Bloggs"
+      ],
+      "url": "http://www.example.com",
+      "doi": "12345"
+    }
+  ],
+  "resources": [
+    {
+      "id": "1",
+      "title": "Example resource",
+      "description": "An example resource",
+      "media_type": "application/1d-interleaved-parityfec",
+      "format": "api",
+      "spatial_resolution": 10,
+      "coordinate_system": "Example",
+      "url": "http://www.example.com",
+      "temporal": {
+        "start": "2020",
+        "end": "2023",
+        "duration": "P3Y"
+      },
+      "temporal_resolution": "P1M"
+    }
+  ],
+  "hazard": {
+    "event_sets": [
+      {
+        "id": "A",
+        "analysis_type": "deterministic",
+        "frequency_distribution": "poisson",
+        "seasonality": "uniform",
+        "calculation_method": "inferred",
+        "event_count": 1,
+        "occurrence_range": "A summary",
+        "spatial": {
+          "countries": [
+            "AFG"
+          ],
+          "bbox": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "centroid": [
+            0,
+            0
+          ],
+          "scale": "global",
+          "gazetteerEntries": [
+            {
+              "id": "AD",
+              "scheme": "ISO 3166-2",
+              "description": "Andorra",
+              "uri": "http://www.example.com"
+            }
+          ]
+        },
+        "temporal": {
+          "start": "2021-01-01",
+          "end": "2023-01",
+          "duration": "P3Y"
+        },
+        "hazards": [
+          {
+            "id": "a",
+            "type": "coastal_flood",
+            "processes": [
+              "coastal_flood"
+            ],
+            "intensity_measure": "PGA:g",
+            "trigger": {
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ]
+            }
+          }
+        ],
+        "events": [
+          {
+            "id": "a",
+            "disaster_identifier": "1",
+            "calculation_method": "inferred",
+            "hazard": {
+              "id": "1",
+              "type": "coastal_flood",
+              "processes": [
+                "coastal_flood"
+              ],
+              "intensity_measure": "PGA:g",
+              "trigger": {
+                "type": "coastal_flood",
+                "processes": [
+                  "coastal_flood"
+                ]
+              }
+            },
+            "occurrence": {
+              "probabilistic": {
+                "return_period": 10,
+                "event_rate": 0.1,
+                "probability": {
+                  "value": 0.5,
+                  "span": 10
+                }
+              },
+              "empirical": {
+                "temporal": {
+                  "start": "2020",
+                  "end": "2020-02-03",
+                  "duration": "P3Y"
+                },
+                "return_period": 10
+              },
+              "deterministic": {
+                "index_criteria": "Criteria description",
+                "thresholds": [
+                  "1 (low)",
+                  "2 (medium)",
+                  "3 (high)"
+                ]
+              }
+            },
+            "description": "A description",
+            "footprints": [
+              {
+                "id": "1",
+                "intensity_measure": "PGA:g",
+                "data_uncertainty": "Uncertain"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "links": [
+    {
+      "href": "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json",
+      "rel": "describedby"
+    }
+  ]
+}
