@@ -139,8 +139,6 @@ def create_template(component, schema_url):
                     "datasets",
                     "-o",
                     temp_path,
-                    "-r",
-                    "id",
                     "--truncation-length",
                     f"{TRUNCATION_LENGTH}"
                     ])
