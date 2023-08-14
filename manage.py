@@ -12,6 +12,12 @@ import xlsxwriter
 from ocdskit.mapping_sheet import mapping_sheet
 from xlsxwriter.utility import xl_col_to_name
 
+RDLS_SCHEMA_URL = "https://raw.githubusercontent.com/GFDRR/rdl-standard/0__2__0/schema/rdls_schema.json"
+
+# https://flatten-tool.readthedocs.io/en/latest/create-template/#all-create-template-options
+TRUNCATION_LENGTH = 10
+MAIN_SHEET_NAME = "datasets"
+
 COMPONENTS = [
     'hazard',
     'exposure',
@@ -20,7 +26,7 @@ COMPONENTS = [
 ]
 
 SHEETS = {
-    "datasets": [],
+    MAIN_SHEET_NAME: [],
     "attributions": [],
     "sources": [],
     "referenced_by": [],
@@ -55,8 +61,8 @@ META_CONFIG = [
     "hashComments"
 ]
 
-# https://flatten-tool.readthedocs.io/en/latest/create-template/#all-create-template-options
-TRUNCATION_LENGTH = 10
+INPUT_ROWS = 1000
+
 
 def get(url):
     """
@@ -136,7 +142,7 @@ def create_template(component, schema_url):
                     "-f",
                     "csv",
                     "-m",
-                    "datasets",
+                    MAIN_SHEET_NAME,
                     "-o",
                     temp_path,
                     "--truncation-length",
@@ -290,8 +296,18 @@ def create_template(component, schema_url):
             else:
                 cell_format = input_format
             
+            # Write input cells, use formulae to populate links sheet
+            start_row = len(header_rows) + 1
+            formulae = ["" for i in range(INPUT_ROWS)]
+            if sheet_name == "links":
+                if path == "id":
+                    formulae = [f"={MAIN_SHEET_NAME}!B{i + start_row}" for i in range(INPUT_ROWS)]
+                elif path == "links/0/href":
+                    formulae = [f'=IF(B{i + start_row}="","","{RDLS_SCHEMA_URL}")' for i in range(INPUT_ROWS)]
+                elif path == "links/0/rel":
+                    formulae = [f'=IF(B{i + start_row}="","","describedby")' for i in range(INPUT_ROWS)]
             worksheet.write_column(
-                7, column, ["" for i in range(1000)], cell_format)
+                7, column, formulae, cell_format)
 
             # Set column width
             worksheet.set_column(column, column, max(len(path), 16))
@@ -306,7 +322,7 @@ def create_template(component, schema_url):
                     column_ref = xl_col_to_name(paths.index(path) + 1)
                     validation_options = {
                         "validate": "list",
-                        "source": f"={sheet}!${column_ref}${len(header_rows) + 1}:${column_ref}$1000"
+                        "source": f"={sheet}!${column_ref}${len(header_rows) + 1}:${column_ref}${INPUT_ROWS}"
                     }
                     break
 
@@ -352,9 +368,9 @@ def create_template(component, schema_url):
     delete_directory_contents(".temp")
 
     # Write excel template
-    datasets_worksheet = workbook.get_worksheet_by_name("datasets")
-    datasets_worksheet.activate()
+    workbook.get_worksheet_by_name(MAIN_SHEET_NAME).activate()
     enum_worksheet.hide()
+    workbook.get_worksheet_by_name("links").hide()
     workbook.close()
 
 
