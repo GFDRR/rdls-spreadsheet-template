@@ -312,20 +312,26 @@ def create_template(component, schema_url):
 
             # Set data validation for codelists
             if codelist:
+                validation_options = {"validate": "list"}
+
                 if values[:4] == 'Enum':
                     codes = values[6:].split(", ")
+                    validation_options["error_type"] = "stop"
+                    validation_options["error_title"] = "Value not in codelist"
+                    validation_options["error_message"] = "You must use a code from the codelist.\n\nIf no code is appropriate, please create an issue in the RDLS GitHub repository."
                 else:
                     codelist_csv = get(
                         f"{schema_url.split('/rdls_schema.json')[0]}/codelists/open/{codelist}")
                     codelist_reader = csv.DictReader(
                         codecs.iterdecode(codelist_csv.iter_lines(), 'utf-8'))
                     codes = [row['Code'] for row in codelist_reader]
+                    validation_options["error_type"] = "warning"
+                    validation_options["error_title"] = "Value not in codelist"
+                    validation_options["error_message"] = "You must use a code from the codelist, unless no code is appropriate.\n\nIf you use new codes outside those in an open codelist, please create an issue in the RDLS GitHub repository, so that the codes can be considered for inclusion in the codelist."
+
                 enum_worksheet.write_column(0, enum_column, [path] + codes)
                 enum_column_ref = xl_col_to_name(enum_column)
-                validation_options = {
-                    "validate": "list",
-                    "source": f"='# Enums'!${enum_column_ref}$2:${enum_column_ref}${len(codes)+1}"
-                }
+                validation_options["source"] = f"='# Enums'!${enum_column_ref}$2:${enum_column_ref}${len(codes)+1}"
                 enum_column += 1
 
             # Set data validation for dates
