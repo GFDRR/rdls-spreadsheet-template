@@ -436,27 +436,30 @@ def create_template(component, schema_url):
             worksheet.write_column(0, column, [metadata[row_name] for row_name in header_rows])
 
             # Set cell format for input rows
-            if values == 'date':
+            if sheet_name == "links":
+                cell_format = workbook.add_format({})
+            elif values == 'date':
                 cell_format = date_format
             elif data_type == 'number':
                 cell_format = number_format
             elif data_type in ['string', 'array', 'object']:
-                cell_format = string_format    
+                cell_format = string_format
             else:
                 cell_format = input_format
             
             # Write input cells, use formulae to populate links sheet
             input_row_ref = len(header_rows) + 1
-            formulae = ["" for i in range(INPUT_ROWS)]
             if sheet_name == "links":
-                if path == "id":
-                    formulae = [f"={MAIN_SHEET_NAME}!B{i + input_row_ref}" for i in range(INPUT_ROWS)]
-                elif path == "links/0/href":
-                    formulae = [f'=IF(B{i + input_row_ref}="","","{RDLS_SCHEMA_URL}")' for i in range(INPUT_ROWS)]
-                elif path == "links/0/rel":
-                    formulae = [f'=IF(B{i + input_row_ref}="","","describedby")' for i in range(INPUT_ROWS)]
-            worksheet.write_column(
-                len(header_rows), column, formulae, cell_format)
+                for i in range(INPUT_ROWS):
+                  if path == "id":
+                      worksheet.write_formula(len(header_rows) + i, column, f'=IF(ISBLANK({MAIN_SHEET_NAME}!B{i + input_row_ref}),"",{MAIN_SHEET_NAME}!B{i + input_row_ref})', cell_format, "")
+                  elif path == "links/0/href":
+                      worksheet.write_formula(len(header_rows) + i, column, f'=IF(B{i + input_row_ref}="","","{RDLS_SCHEMA_URL}")', cell_format, "")
+                  elif path == "links/0/rel":
+                      worksheet.write_formula(len(header_rows) + i, column, f'=IF(B{i + input_row_ref}="","","describedby")', cell_format, "")                      
+            else:
+              worksheet.write_column(
+                  len(header_rows), column, ["" for i in range(INPUT_ROWS)], cell_format)
 
             # Set column width
             worksheet.set_column(column, column, max(len(path), 16))
