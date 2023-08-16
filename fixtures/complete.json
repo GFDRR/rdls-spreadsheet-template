@@ -22,6 +22,13 @@
       0,
       0
     ],
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        0,
+        0
+      ]
+    },
     "centroid": [
       0,
       0
@@ -83,6 +90,13 @@
         0,
         0
       ],
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          0,
+          0
+        ]
+      },
       "centroid": [
         0,
         0
@@ -195,6 +209,7 @@
         "John Smith",
         "Joe Bloggs"
       ],
+      "datePublished": "2023-01-01",
       "url": "http://www.example.com",
       "doi": "12345"
     }
@@ -237,6 +252,13 @@
             0,
             0
           ],
+          "geometry": {
+            "type": "Point",
+            "coordinates": [
+              0,
+              0
+            ]
+          },
           "centroid": [
             0,
             0
