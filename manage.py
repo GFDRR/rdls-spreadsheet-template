@@ -114,7 +114,11 @@ def cli():
               default='https://rdl-standard.readthedocs.io/en/dev/rdls_schema.json',
               show_default=True
               )
-def create_template(component, schema_url):
+@click.option('-w',
+              '--wkt',
+              default=True,
+              show_default=True)
+def create_template(component, schema_url, wkt):
 
     """
     Create an XLSX template.
@@ -135,19 +139,10 @@ def create_template(component, schema_url):
 
     # Generate a temporary CSV template using Flatten Tool
     json_dump(".temp/schema.json", schema)
-    subprocess.run(["flatten-tool",
-                    "create-template",
-                    "-s",
-                    f"{temp_path}/schema.json",
-                    "-f",
-                    "csv",
-                    "-m",
-                    MAIN_SHEET_NAME,
-                    "-o",
-                    temp_path,
-                    "--truncation-length",
-                    f"{TRUNCATION_LENGTH}"
-                    ])
+    command = f"flatten-tool create-template -s {temp_path}/schema.json -f csv -m {MAIN_SHEET_NAME} -o {temp_path} --truncation-length {TRUNCATION_LENGTH}"
+    if wkt:
+        command = f"{command} --convert-wkt" 
+    subprocess.run(command.split(" "))
 
     # Generate a mapping sheet to use as a source for field metadata
     schema_table = mapping_sheet(schema, include_codelist=True)
@@ -427,9 +422,9 @@ def create_template(component, schema_url):
             # Add data input guidance
             if data_type == "array":
                 if values[:4] == 'Enum':
-                  metadata["input guidance"] = "Select from list or enter multiple values as a semicolon-separated list, e.g. a;b;c"
+                  metadata["input guidance"] = "Select from list or enter multiple values as a semicolon-separated list, e.g. a;b;c. Each value must be a code from the codelist."
                 else:
-                  metadata["input guidance"] = "Enter multiple values as a semicolon-separated list, e.g. a;b;c"
+                  metadata["input guidance"] = "Enter multiple values as a semicolon-separated list, e.g. a;b;c. Values must not contain semicolons or commas."
             else:
                 metadata["input guidance"] = ""
 
