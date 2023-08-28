@@ -2,16 +2,16 @@
 
 A template for entering [Risk Data Library Standard (RDLS)](https://rdl-standard.readthedocs.io) metadata in spreadsheet format. For more information on the Risk Data Library project, see [https://riskdatalibrary.org/](https://riskdatalibrary.org/).
 
-:arrow_down: **[Download the template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/full.xlsx)**
+**[:arrow_down: Download the template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/full.xlsx)**
 
 ## How to use the template
 
 1. Read the [RDLS documentation](https://rdl-standard.readthedocs.io) to learn about the structure of RDLS metadata.
 1. Download the template and enter your data in your preferred spreadsheet software:
-  * Start by entering data in the first row in the `datasets` worksheet and then complete in any other [worksheets](#worksheets) that are relevant to your dataset.
-  * Use the [field information](#field-information) to understand what data to enter into each column and how to format it.
-  * Use [identifiers](#identifiers) to relate data entered across multiple worksheets.
-  * Make sure that you complete all of the required fields for each worksheet that you add data to.
+  1. Start by entering data in the first row in the `datasets` worksheet and then complete in any other [worksheets](#worksheets) that are relevant to your dataset.
+  1. Use the [field information](#field-information) to understand what data to enter into each column and how to format it.
+  1. Use [identifiers](#identifiers) to relate data entered across multiple worksheets.
+  1. Make sure that you complete all of the required fields for each worksheet that you add data to.
 1. Check that your data conforms to the schema using the [RDLS metadata toolkit]() and correct any errors.
 
  For more guidance on how to publish RDLS metadata, refer to the [implementation guidance](https://rdl-standard.readthedocs.io/en/dev/guides/).
