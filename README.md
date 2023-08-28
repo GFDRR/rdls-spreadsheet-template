@@ -2,6 +2,8 @@
 
 A template for entering [Risk Data Library Standard (RDLS)](https://rdl-standard.readthedocs.io) metadata in spreadsheet format. For more information on the Risk Data Library project, see [https://riskdatalibrary.org/](https://riskdatalibrary.org/). For guidance on how to publish RDLS metadata using the spreadsheet template, refer to the [implementation guidance](https://rdl-standard.readthedocs.io/en/dev/guides/).
 
+**[Download the template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/full.xlsx)**
+
 ## Template structure
 
 The template consists of several worksheets, reflecting the structure of the RDLS schema. The `datasets` worksheet is the main worksheet and each row in the `datasets` worksheet represents a risk dataset. The other worksheets in the template represent arrays in the RDLS schema, with rows representing items in the arrays. For example, each row in the the `resources` worksheet represents a [resource](https://rdl-standard.readthedocs.io/en/dev/reference/schema/#resource). For more information on the RDLS schema, refer to the [schema reference](https://rdl-standard.readthedocs.io/en/dev/reference/).
