@@ -158,14 +158,12 @@ def create_template(component, schema_url, wkt):
             "row_height": None,
             "cell_format": workbook.add_format({
                 "bold": True,
-                "bg_color": "#efefef"}),
-            "documentation": "A JSON pointer that identifies the RDLS field represented by the column. This information is used to convert data from spreadsheet format to JSON format. For more information, see https://flatten-tool.readthedocs.io/en/latest/unflatten/#understanding-json-pointer-and-how-flatten-tool-uses-it."
+                "bg_color": "#efefef"})
             },
         "title": {
             "row_height": None,
             "cell_format": workbook.add_format({
-                "bg_color": "#efefef"}),
-            "documentation": "The title of the field, from the RDLS schema."
+                "bg_color": "#efefef"})
             },
         "description": {
             "row_height": 30,
@@ -174,22 +172,19 @@ def create_template(component, schema_url, wkt):
                 "text_wrap": True,
                 "valign": "top",
                 "bg_color": "#efefef"
-              }),
-            "documentation": "The description of the field, from the RDLS schema. You must ensure that the data you enter into each column conforms to the field's description."
+              })
             },
         "required": {
             "row_height": None,
             "cell_format": workbook.add_format({
                 "font_size": 8,
-                "bg_color": "#efefef"}),
-            "documentation": "Whether the field is required (mandatory). You must populate required fields unless no other fields in the sheet are populated."
+                "bg_color": "#efefef"})
             },
         "type": {
             "row_height": None,
             "cell_format": workbook.add_format({
                 "font_size": 8,
-                "bg_color": "#efefef"}),
-            "documentation": "The data type of the field, from the RDLS schema. Fields can be of type string (text), number (decimal), integer (whole number), boolean (true/false), or array (list of values)."
+                "bg_color": "#efefef"})
             },
         "values": {
             "row_height": 30,
@@ -198,8 +193,7 @@ def create_template(component, schema_url, wkt):
                 "text_wrap": True,
                 "valign": "top",
                 "bg_color": "#efefef"
-              }),
-            "documentation": "If the field references a closed codelist, its permissable values. For more information, see https://rdl-standard.readthedocs.io/en/dev/reference/codelists/. If the value of the field must conform to a particular string format, the name of the format. Fields can be of format date, email or iri (web address). For more information, see https://json-schema.org/understanding-json-schema/reference/string.html#built-in-formats."
+              })
             },
         "codelist": {
             "row_height": None,
@@ -207,8 +201,7 @@ def create_template(component, schema_url, wkt):
                 "font_size": 8,
                 "font_color": "blue",
                 "underline": True,
-                "bg_color": "#efefef"}),
-            "documentation": "If the field references a codelist, the name of the codelist. To view the title and description of each code, open the link."
+                "bg_color": "#efefef"})
             },
         "input guidance": {
             "row_height": 50,
@@ -218,106 +211,21 @@ def create_template(component, schema_url, wkt):
                 "valign": "top",
                 "bg_color": "#efefef",
                 "bottom": 1
-              }),
-            "documentation": "Guidance on how to enter data."            
+              })          
         }
     }
 
     # Write readme worksheet
     readme_worksheet = workbook.add_worksheet("# README")
-    readme_heading_format = workbook.add_format({
+
+    readme_worksheet.write_row(0, 0, ["Risk Data Library Standard spreadsheet template"], workbook.add_format({
               "bold": True,
               "font_size": 18,
               "valign": "top", 
-              })
-    readme_subheading_format = workbook.add_format({
-        "bold": True,
-        "font_size": 14,
-        "valign": "top"
-    })
-    readme_body_format = workbook.add_format({
-        "text_wrap": True,
-        "align": "left",
-        "valign": "top"
-    })
-
-    readme_content = [
-        {
-            "content": "RDLS spreadsheet input template",
-            "format": readme_heading_format,
-            "row_height": 30
-        },
-        {
-            "content": "A template for entering RDLS metadata in spreadsheet format",
-            "format": readme_body_format
-        },
-        {
-            "content": "",
-            "format": readme_body_format
-        },
-        {
-            "content": "Structure",
-            "format": readme_subheading_format,
-            "row_height": 30
-        },
-        {
-            "content": "This template consists of several worksheets, reflecting the structure of the RDLS schema. The `datasets` worksheet is the main worksheet and each row in the `datasets` worksheet represents a risk dataset. The other worksheets in the template represent arrays in the RDLS schema, with rows representing items in the arrays. For example, each row in the the `resources` worksheet represents represents a resource.",
-            "format": readme_body_format,
-            "row_height": 60
-        },
-        {
-            "content": "",
-            "format": readme_body_format
-        },
-        {
-            "content": "Relationships using identifiers",
-            "format": readme_subheading_format,
-            "row_height": 30
-        },
-        {
-            "content": "Identifiers are used to relate data entered across multiple worksheets, allowing the possibility of one-to-many relationships, such as one dataset made up of many resources. Rows in child worksheets are related to rows in parent worksheets using the parent object’s `id` field. For example, the `id` column in the `resources` is used to reference the `id` of the dataset to which the resource belongs. Similarly, each row in the `hazard_event_sets_events` represents an event in an event set. The `hazard/event_sets/0/id` column references the event set to which the event belongs and the `id` column references the dataset to which the event set and event belong.",
-            "format": readme_body_format,
-            "row_height": 90
-        },
-        {
-            "content": "",
-            "format": readme_body_format
-        },
-        {
-            "content": "Fields",
-            "format": readme_subheading_format,
-            "row_height": 30
-        },
-        {
-            "content": "Each column in the template represents a field in the RDLS schema. The following information is provided for each field:",
-            "format": readme_body_format,
-            "row_height": 30
-        },
-        {
-            "content": "",
-            "format": readme_body_format
-        }
-    ]
-
-    row_index = 0
-
-    for cell in readme_content:
-        readme_worksheet.write_row(row_index, 0, [cell["content"]], cell["format"])
-        readme_worksheet.set_row(row_index, cell.get("row_height"))
-        row_index +=1
-
-    readme_worksheet.write_row(
-        row_index,
-        0,
-        ["\n".join([f"{row_name}: {row_data['documentation']}\n\n" for row_name, row_data in header_rows.items()])],
-        workbook.add_format({
-            "valign": "top",
-            "text_wrap": True
-        })
-    )
-
-    readme_worksheet.set_row(row_index, 500)
-    readme_worksheet.set_column(0, 0, 100)
+              }))
+    readme_worksheet.set_row(0, 30)
+    readme_worksheet.write_url(1, 0, "https://github.com/GFDRR/rdls-spreadsheet-template", string="To learn about the structure of the template and how to enter data, read the documentation at https://github.com/GFDRR/rdls-spreadsheet-template.")
+    readme_worksheet.set_column(0, 0, 150)
 
     META_CONFIG.append(f"HeaderRows {len(header_rows)}"),
 
