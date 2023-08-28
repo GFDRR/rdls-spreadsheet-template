@@ -333,6 +333,8 @@ def create_template(component, schema_url, wkt):
                   metadata["input guidance"] = "Select from list or enter multiple values as a semicolon-separated list, e.g. a;b;c. Each value must be a code from the codelist."
                 else:
                   metadata["input guidance"] = "Enter multiple values as a semicolon-separated list, e.g. a;b;c. Values must not contain semicolons or commas."
+            elif path.split('/')[-1] == 'geometry':
+                metadata["input guidance"] = "Enter a well-known text value, e.g. POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10)). For more information on the well-known text representation of geometry, see https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry."
             else:
                 metadata["input guidance"] = ""
 
