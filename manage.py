@@ -38,7 +38,7 @@ SHEETS = {
     "hazard_event_sets_spatial_gazet": [],
     "hazard_event_sets_events": [],
     "hazard_event_sets_events_footpr": [],
-    "exposure_cost": [],
+    "exposure_metrics": [],
     "vulnerabil_cost": [],
     "vulnerabil_spatial_gazetteerEnt": [],
     "loss_cost": [],
@@ -224,7 +224,7 @@ def create_template(component, schema_url, wkt):
               "valign": "top", 
               }))
     readme_worksheet.set_row(0, 30)
-    readme_worksheet.write_url(1, 0, "https://github.com/GFDRR/rdls-spreadsheet-template", string="To learn about the structure of the template and how to enter data, read the documentation at https://github.com/GFDRR/rdls-spreadsheet-template.")
+    readme_worksheet.write_url(1, 0, "https://github.com/GFDRR/rdls-spreadsheet-template/blob/main/README.md", string="To learn about the structure of the template and how to enter data, read the documentation at https://github.com/GFDRR/rdls-spreadsheet-template/blob/main/README.md.")
     readme_worksheet.set_column(0, 0, 150)
 
     META_CONFIG.append(f"HeaderRows {len(header_rows)}"),
@@ -268,7 +268,7 @@ def create_template(component, schema_url, wkt):
       # Add missing sheet names
       if sheet_name not in SHEETS:
           warnings.warn(
-              f"Found new sheet: {sheet_name}. It will be added to the end of the workbook. You should update SHEET in manage.py to set its order.")
+              f"Found new sheet: {sheet_name}. It will be added to the end of the workbook. You should update SHEETS in manage.py to set its order.")
           SHEETS[sheet_name] = []
 
       # Read column headers
