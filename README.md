@@ -17,9 +17,10 @@ A template for entering [Risk Data Library Standard (RDLS)](https://docs.riskdat
    1. Use the [field information](#field-information) to understand what data to enter into each column and how to format it.
    1. Use [identifiers](#identifiers) to relate data entered across multiple worksheets.
    1. Make sure that you complete all of the required fields for each worksheet that you add data to.
-1. Check that your data conforms to the schema using the [RDLS metadata toolkit]() and correct any errors.
+1. Convert your data to JSON format and validate it against the RDLS schema using the [RDLS Convertor](http://metadata.riskdatalibrary.org).
+1. Fix any issues reported by the RDLS Convertor.
 
- For more guidance on how to publish RDLS metadata, refer to the [implementation guidance](https://docs.riskdatalibrary.org/en/dev/guides/).
+For more guidance on how to publish RDLS metadata, refer to the [implementation guidance](https://docs.riskdatalibrary.org/en/dev/guides/).
 
 ## How to customise the template
 
