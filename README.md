@@ -2,12 +2,12 @@
 
 A template for entering [Risk Data Library Standard (RDLS)](https://docs.riskdatalibrary.org) metadata in spreadsheet format. For more information on the Risk Data Library project, see [https://riskdatalibrary.org/](https://riskdatalibrary.org/).
 
-**[:arrow_down: Download the full template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template.xlsx)** (Hazard, exposure, vulnerability and loss metadata)
+**[:arrow_down: Download the full template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rdls_template.xlsx)** (Hazard, exposure, vulnerability and loss metadata)
 
-* **[:arrow_down: Download the hazard metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template_hazard.xlsx)**
-* **[:arrow_down: Download the exposure metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template_exposure.xlsx)**
-* **[:arrow_down: Download the vulnerability metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template_vulnerability.xlsx)**
-* **[:arrow_down: Download the loss metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template_loss.xlsx)**
+* **[:arrow_down: Download the hazard metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rdls_template_hazard.xlsx)**
+* **[:arrow_down: Download the exposure metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rdls_template_exposure.xlsx)**
+* **[:arrow_down: Download the vulnerability metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rdls_template_vulnerability.xlsx)**
+* **[:arrow_down: Download the loss metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rdls_template_loss.xlsx)**
 
 ## How to use the template
 
