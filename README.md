@@ -1,12 +1,17 @@
 #  Risk Data Library Standard Spreadsheet Template
 
-A template for entering [Risk Data Library Standard (RDLS)](https://rdl-standard.readthedocs.io) metadata in spreadsheet format. For more information on the Risk Data Library project, see [https://riskdatalibrary.org/](https://riskdatalibrary.org/).
+A template for entering [Risk Data Library Standard (RDLS)](https://docs.riskdatalibrary.org) metadata in spreadsheet format. For more information on the Risk Data Library project, see [https://riskdatalibrary.org/](https://riskdatalibrary.org/).
 
-**[:arrow_down: Download the template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/full.xlsx)**
+**[:arrow_down: Download the full template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template.xlsx)** (Hazard, exposure, vulnerability and loss metadata)
+
+* **[:arrow_down: Download the hazard metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template_hazard.xlsx)**
+* **[:arrow_down: Download the exposure metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template_exposure.xlsx)**
+* **[:arrow_down: Download the vulnerability metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template_vulnerability.xlsx)**
+* **[:arrow_down: Download the loss metadata template](https://github.com/GFDRR/rdls-spreadsheet-template/raw/main/templates/rlds_template_loss.xlsx)**
 
 ## How to use the template
 
-1. Read the [RDLS documentation](https://rdl-standard.readthedocs.io) to learn about the structure of RDLS metadata.
+1. Read the [RDLS documentation](https://docs.riskdatalibrary.org) to learn about the structure of RDLS metadata.
 1. Download the template and enter your data in your preferred spreadsheet software:
    1. Start by entering data in the first row in the `datasets` worksheet and then complete any other [worksheets](#worksheets) that are relevant to your dataset.
    1. Use the [field information](#field-information) to understand what data to enter into each column and how to format it.
@@ -14,7 +19,7 @@ A template for entering [Risk Data Library Standard (RDLS)](https://rdl-standard
    1. Make sure that you complete all of the required fields for each worksheet that you add data to.
 1. Check that your data conforms to the schema using the [RDLS metadata toolkit]() and correct any errors.
 
- For more guidance on how to publish RDLS metadata, refer to the [implementation guidance](https://rdl-standard.readthedocs.io/en/dev/guides/).
+ For more guidance on how to publish RDLS metadata, refer to the [implementation guidance](https://docs.riskdatalibrary.org/en/dev/guides/).
 
 ## How to customise the template
 
@@ -29,7 +34,7 @@ It indicates that each row under that field path should be interpreted as an ite
 ## Reference
 ### Worksheets
 
-The template consists of several worksheets, reflecting the structure of the RDLS schema. The `datasets` worksheet is the main worksheet and each row in the `datasets` worksheet represents a risk dataset. The other worksheets in the template represent arrays in the RDLS schema, with rows representing items in the arrays. For example, each row in the the `resources` worksheet represents a [resource](https://rdl-standard.readthedocs.io/en/dev/reference/schema/#resource). For more information on the RDLS schema, refer to the [schema reference](https://rdl-standard.readthedocs.io/en/dev/reference/).
+The template consists of several worksheets, reflecting the structure of the RDLS schema. The `datasets` worksheet is the main worksheet and each row in the `datasets` worksheet represents a risk dataset. The other worksheets in the template represent arrays in the RDLS schema, with rows representing items in the arrays. For example, each row in the the `resources` worksheet represents a [resource](https://docs.riskdatalibrary.org/en/dev/reference/schema/#resource). For more information on the RDLS schema, refer to the [schema reference](https://docs.riskdatalibrary.org/en/dev/reference/).
 
 ### Identifiers
 
@@ -49,7 +54,7 @@ Each column in the template represents a field in the RDLS schema. The following
   * integer (whole number)
   * boolean (true/false)
   * array (list of values).
-* `values`: If the field references a closed [codelist](https://rdl-standard.readthedocs.io/en/dev/reference/codelists/), the permitted values. If the value of the field must conform to a particular [string format](https://json-schema.org/understanding-json-schema/reference/string.html#built-in-formats), the name of the format. The possible formats are:
+* `values`: If the field references a closed [codelist](https://docs.riskdatalibrary.org/en/dev/reference/codelists/), the permitted values. If the value of the field must conform to a particular [string format](https://json-schema.org/understanding-json-schema/reference/string.html#built-in-formats), the name of the format. The possible formats are:
   * date (YYYY-MM-DD)
   * email
   * iri (web address)
