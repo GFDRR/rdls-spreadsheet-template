@@ -31,16 +31,17 @@ SHEETS = {
     "attributions": [],
     "sources": [],
     "referenced_by": [],
-    "spatial_gazetteerEntries": [],
+    "spatial_gazetteer_entries": [],
     "resources": [],
     "hazard_event_sets": [],
     "hazard_event_sets_hazards": [],
     "hazard_event_sets_spatial_gazet": [],
     "hazard_event_sets_events": [],
+    "hazard_event_sets_events_disast": [],
     "hazard_event_sets_events_footpr": [],
     "exposure_metrics": [],
     "vulnerabil_cost": [],
-    "vulnerabil_spatial_gazetteerEnt": [],
+    "vulnerabil_spatial_gazetteer_en": [],
     "loss_cost": [],
     "links": []
 }
@@ -111,7 +112,7 @@ def cli():
               )
 @click.option('-s',
               '--schema_url',
-              default='https://rdl-standard.readthedocs.io/en/dev/rdls_schema.json',
+              default='https://docs.riskdatalibrary.org/en/dev/rdls_schema.json',
               show_default=True
               )
 @click.option('-w',
@@ -150,7 +151,7 @@ def create_template(component, schema_url, wkt):
 
     # Create XLSX template
     workbook = xlsxwriter.Workbook(
-        f"templates/{component if component else 'full'}.xlsx")
+        f"templates/rdls_template{f'_{component}' if component else ''}.xlsx")
 
     # Define order, row heights and cell formats for header rows 
     header_rows = {
@@ -435,7 +436,7 @@ def create_template(component, schema_url, wkt):
     readme_worksheet.activate()
     enum_worksheet.hide()
     workbook.get_worksheet_by_name("links").hide()
-    workbook.close()
+    workbook.close() 
 
 
 if __name__ == '__main__':
