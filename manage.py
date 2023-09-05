@@ -48,11 +48,10 @@ SHEETS = {
 
 # Colours for related tabs
 PALETTE = {
-    "resources": "#0b3860",
-    "hazard": "#1a6eff",
-    "exposure": "#989bff",
-    "vulnerability": "#f9d6ff",
-    "loss": "#c57082"
+    "hazard": "#148cb4",
+    "exposure": "#0ed0a9",
+    "vulnerability": "#ffd166",
+    "loss": "#ee476f"
 }
 
 # https://flatten-tool.readthedocs.io/en/latest/unflatten/#metadata-tab
