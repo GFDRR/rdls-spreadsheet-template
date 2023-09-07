@@ -20,7 +20,7 @@ A template for entering [Risk Data Library Standard (RDLS)](https://docs.riskdat
 1. Convert your data to JSON format and validate it against the RDLS schema using the [RDLS Convertor](http://metadata.riskdatalibrary.org).
 1. Fix any issues reported by the RDLS Convertor.
 
-For more guidance on how to publish RDLS metadata, refer to the [implementation guidance](https://docs.riskdatalibrary.org/en/dev/guides/).
+For more guidance on how to publish RDLS metadata, refer to the [implementation guidance](https://docs.riskdatalibrary.org/en/latest/guides/).
 
 ## How to customise the template
 
@@ -35,7 +35,7 @@ It indicates that each row under that field path should be interpreted as an ite
 ## Reference
 ### Worksheets
 
-The template consists of several worksheets, reflecting the structure of the RDLS schema. The `datasets` worksheet is the main worksheet and each row in the `datasets` worksheet represents a risk dataset. The other worksheets in the template represent arrays in the RDLS schema, with rows representing items in the arrays. For example, each row in the the `resources` worksheet represents a [resource](https://docs.riskdatalibrary.org/en/dev/reference/schema/#resource). For more information on the RDLS schema, refer to the [schema reference](https://docs.riskdatalibrary.org/en/dev/reference/).
+The template consists of several worksheets, reflecting the structure of the RDLS schema. The `datasets` worksheet is the main worksheet and each row in the `datasets` worksheet represents a risk dataset. The other worksheets in the template represent arrays in the RDLS schema, with rows representing items in the arrays. For example, each row in the the `resources` worksheet represents a [resource](https://docs.riskdatalibrary.org/en/latest/reference/schema/#resource). For more information on the RDLS schema, refer to the [schema reference](https://docs.riskdatalibrary.org/en/latest/reference/).
 
 ### Identifiers
 
@@ -55,7 +55,7 @@ Each column in the template represents a field in the RDLS schema. The following
   * integer (whole number)
   * boolean (true/false)
   * array (list of values).
-* `values`: If the field references a closed [codelist](https://docs.riskdatalibrary.org/en/dev/reference/codelists/), the permitted values. If the value of the field must conform to a particular [string format](https://json-schema.org/understanding-json-schema/reference/string.html#built-in-formats), the name of the format. The possible formats are:
+* `values`: If the field references a closed [codelist](https://docs.riskdatalibrary.org/en/latest/reference/codelists/), the permitted values. If the value of the field must conform to a particular [string format](https://json-schema.org/understanding-json-schema/reference/string.html#built-in-formats), the name of the format. The possible formats are:
   * date (YYYY-MM-DD)
   * email
   * iri (web address)
