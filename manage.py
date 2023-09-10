@@ -42,7 +42,7 @@ SHEETS = {
     "exposure_metrics": [],
     "vulnerabil_cost": [],
     "vulnerabil_spatial_gazetteer_en": [],
-    "loss_cost": [],
+    "loss_losses": [],
     "links": []
 }
 
