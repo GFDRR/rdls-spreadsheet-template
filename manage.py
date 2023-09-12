@@ -12,8 +12,15 @@ import xlsxwriter
 from ocdskit.mapping_sheet import mapping_sheet
 from xlsxwriter.utility import xl_col_to_name
 
-RDLS_SCHEMA_URL = "https://docs.riskdatalibrary.org/en/0__2__0/rdls_schema.json"
-RDLS_DOCS_URL = "https://docs.riskdatalibrary.org/"
+RDLS_BASE_URL = "https://docs.riskdatalibrary.org"
+RDLS_LANGUAGE = "en"
+
+RDLS_DOCS_VERSION = "latest"
+RDLS_DOCS_URL = f"{RDLS_BASE_URL}/{RDLS_LANGUAGE}/{RDLS_DOCS_VERSION}"
+
+RDLS_SCHEMA_VERSION = "0__2__0"
+RDLS_SCHEMA_URL = f"{RDLS_BASE_URL}/{RDLS_LANGUAGE}/{RDLS_SCHEMA_VERSION}/rdls_schema.json"
+
 
 # https://flatten-tool.readthedocs.io/en/latest/create-template/#all-create-template-options
 TRUNCATION_LENGTH = 10
