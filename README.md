@@ -66,12 +66,98 @@ Each column in the template represents a field in the RDLS schema. The following
 
 The spreadsheet template is generated from the RDLS schema using the script in `manage.py`.
 
-### How to update the template
+### Set up your development environment
 
-Run the following command:
+#### Clone the repository
+
+```bash
+git clone git@github.com:GFDRR/rdls-spreadsheet-template.git
+cd rdls-spreadsheet-template
+```
+
+Subsequent instructions assume that your current working directory is `rdls-spreadsheet-template`, unless otherwise stated.
+
+#### Initialise and update submodules:
+
+```bash
+git submodule init
+git submodule update
+```
+
+#### Create and activate a Python virtual environment
+
+The following instructions assume you have [Python 3.8](https://www.python.org/downloads/) or newer installed on your machine.
+
+You can use either `pyenv` or `python3-venv` for this step.
+
+##### pyenv
+
+1. Install [pyenv](https://github.com/pyenv/pyenv). The [pyenv installer](https://github.com/pyenv/pyenv-installer) is recommended.
+1. Create a virtual environment.
+
+    ```bash
+    pyenv virtualenv rdls-spreadsheet-template
+    ```
+
+1. Activate the virtual environment.
+
+    ```bash
+    pyenv activate rdls-spreadsheet-template
+    ```
+
+1. Set the local application-specific virtual environment. Once set, navigating to the `rdls-spreadsheet-template` directory will automatically activate the environment.
+
+    ```bash
+    pyenv local rdls-spreadsheet-template
+    ```
+
+##### virtualenv
+
+1. Create a virtual environment named `.ve`.
+  1. Linux/MacOS users:
+
+      ```bash
+      python3 -m venv .ve
+      ```
+
+  1. Windows users:
+
+      ```bash
+      py -m venv .ve
+      ```
+
+1. Activate the virtual environment. You must run this command for each new terminal session.
+  1. Linux/MacOS users:
+
+      ```bash
+      source .ve/bin/activate
+      ```
+
+  1. Windows users:
+
+      ```bash
+      .\.ve\Scripts\activate
+      ```  
+
+#### Install requirements:
+
+```bash
+pip install --upgrade pip setuptools
+pip install -r requirements.txt
+```
+
+### Update the template
+
+Update the main template:
 
 ```bash
 python manage.py create-template
+```
+
+Update the component templates using the `-c` option, e.g. update the hazard component:
+
+```bash
+python manage.py create-template -c hazard
 ```
 
 To see all options, pass the --help flag:
