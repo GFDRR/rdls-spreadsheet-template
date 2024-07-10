@@ -151,6 +151,12 @@ def create_template(component, schema_url, wkt):
         command = f"{command} --convert-wkt" 
     subprocess.run(command.split(" "))
 
+    # Truncate CSV filenames to 31 characters for Excel compatibility
+    filenames = os.listdir(temp_path)
+    for index, filename in enumerate(filenames):
+        if filename.split('.')[-1] == 'csv':
+            os.rename(os.path.join(temp_path, filename), os.path.join(temp_path, ''.join([filename.split('.csv')[0][:31], '.csv'])))
+    
     # Generate a mapping sheet to use as a source for field metadata
     schema_table = mapping_sheet(schema, include_codelist=True)
     field_metadata = {field["path"]: field for field in schema_table[1]}
