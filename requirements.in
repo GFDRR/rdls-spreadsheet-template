@@ -2,4 +2,4 @@ click
 ocdskit
 requests
 xlsxwriter
-./flatten-tool
+flattentool>=0.22

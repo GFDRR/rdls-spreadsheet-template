@@ -77,13 +77,6 @@ cd rdls-spreadsheet-template
 
 Subsequent instructions assume that your current working directory is `rdls-spreadsheet-template`, unless otherwise stated.
 
-#### Initialise and update submodules:
-
-```bash
-git submodule init
-git submodule update
-```
-
 #### Create and activate a Python virtual environment
 
 The following instructions assume you have [Python 3.8](https://www.python.org/downloads/) or newer installed on your machine.
